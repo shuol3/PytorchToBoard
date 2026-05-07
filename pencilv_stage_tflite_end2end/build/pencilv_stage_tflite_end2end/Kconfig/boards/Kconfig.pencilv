@@ -1,0 +1,2 @@
+# Load board Kconfig descriptions.
+osource "D:/NRF5340/PytorchToBoard/pencilv_stage_tflite_end2end/boards/arm/pencilv/Kconfig.pencilv"

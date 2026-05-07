@@ -1,0 +1,5 @@
+{
+  "model_py": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\model.py",
+  "checkpoint": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\model.pt",
+  "config": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\artifacts\\latest_run\\resolved_config.yaml"
+}

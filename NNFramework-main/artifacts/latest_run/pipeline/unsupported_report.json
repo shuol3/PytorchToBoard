@@ -1,0 +1,193 @@
+{
+  "candidates": [
+    {
+      "precision": "int8",
+      "deployable": true,
+      "unsupported": [],
+      "not_fully_accelerated": [
+        {
+          "scope": "preprocess",
+          "name": "bandpass",
+          "support_level": "fallback",
+          "accelerated_by": [],
+          "fallback": "Current deployment flow keeps bandpass as metadata only; no board-runtime bandpass stage is generated yet.",
+          "unsupported_reason": null,
+          "notes": [
+            "CMSIS-DSP biquad/FIR acceleration is feasible, but the lowering path is still TODO.",
+            "params={'low_hz': 3000, 'high_hz': 7900, 'order': 4}"
+          ]
+        },
+        {
+          "scope": "model_op",
+          "name": "STRIDED_SLICE",
+          "support_level": "supported",
+          "accelerated_by": [],
+          "fallback": "Use TFLM builtin kernel.",
+          "unsupported_reason": null,
+          "notes": [
+            "count=2"
+          ]
+        }
+      ]
+    },
+    {
+      "precision": "float16",
+      "deployable": true,
+      "unsupported": [],
+      "not_fully_accelerated": [
+        {
+          "scope": "preprocess",
+          "name": "bandpass",
+          "support_level": "fallback",
+          "accelerated_by": [],
+          "fallback": "Current deployment flow keeps bandpass as metadata only; no board-runtime bandpass stage is generated yet.",
+          "unsupported_reason": null,
+          "notes": [
+            "CMSIS-DSP biquad/FIR acceleration is feasible, but the lowering path is still TODO.",
+            "params={'low_hz': 3000, 'high_hz': 7900, 'order': 4}"
+          ]
+        },
+        {
+          "scope": "model_op",
+          "name": "AVERAGE_POOL_2D",
+          "support_level": "supported",
+          "accelerated_by": [],
+          "fallback": "Use TFLM builtin float kernel.",
+          "unsupported_reason": null,
+          "notes": [
+            "count=1"
+          ]
+        },
+        {
+          "scope": "model_op",
+          "name": "CONV_2D",
+          "support_level": "supported",
+          "accelerated_by": [],
+          "fallback": "Use TFLM builtin float kernel.",
+          "unsupported_reason": null,
+          "notes": [
+            "count=3"
+          ]
+        },
+        {
+          "scope": "model_op",
+          "name": "DEQUANTIZE",
+          "support_level": "supported",
+          "accelerated_by": [],
+          "fallback": "Use TFLM builtin kernel to materialize float activations.",
+          "unsupported_reason": null,
+          "notes": [
+            "count=10"
+          ]
+        },
+        {
+          "scope": "model_op",
+          "name": "FULLY_CONNECTED",
+          "support_level": "supported",
+          "accelerated_by": [],
+          "fallback": "Use TFLM builtin float kernel.",
+          "unsupported_reason": null,
+          "notes": [
+            "count=2"
+          ]
+        },
+        {
+          "scope": "model_op",
+          "name": "MAX_POOL_2D",
+          "support_level": "supported",
+          "accelerated_by": [],
+          "fallback": "Use TFLM builtin float kernel.",
+          "unsupported_reason": null,
+          "notes": [
+            "count=3"
+          ]
+        },
+        {
+          "scope": "model_op",
+          "name": "STRIDED_SLICE",
+          "support_level": "supported",
+          "accelerated_by": [],
+          "fallback": "Use TFLM builtin kernel.",
+          "unsupported_reason": null,
+          "notes": [
+            "count=2"
+          ]
+        }
+      ]
+    },
+    {
+      "precision": "float32",
+      "deployable": true,
+      "unsupported": [],
+      "not_fully_accelerated": [
+        {
+          "scope": "preprocess",
+          "name": "bandpass",
+          "support_level": "fallback",
+          "accelerated_by": [],
+          "fallback": "Current deployment flow keeps bandpass as metadata only; no board-runtime bandpass stage is generated yet.",
+          "unsupported_reason": null,
+          "notes": [
+            "CMSIS-DSP biquad/FIR acceleration is feasible, but the lowering path is still TODO.",
+            "params={'low_hz': 3000, 'high_hz': 7900, 'order': 4}"
+          ]
+        },
+        {
+          "scope": "model_op",
+          "name": "AVERAGE_POOL_2D",
+          "support_level": "supported",
+          "accelerated_by": [],
+          "fallback": "Use TFLM builtin float kernel.",
+          "unsupported_reason": null,
+          "notes": [
+            "count=1"
+          ]
+        },
+        {
+          "scope": "model_op",
+          "name": "CONV_2D",
+          "support_level": "supported",
+          "accelerated_by": [],
+          "fallback": "Use TFLM builtin float kernel.",
+          "unsupported_reason": null,
+          "notes": [
+            "count=3"
+          ]
+        },
+        {
+          "scope": "model_op",
+          "name": "FULLY_CONNECTED",
+          "support_level": "supported",
+          "accelerated_by": [],
+          "fallback": "Use TFLM builtin float kernel.",
+          "unsupported_reason": null,
+          "notes": [
+            "count=2"
+          ]
+        },
+        {
+          "scope": "model_op",
+          "name": "MAX_POOL_2D",
+          "support_level": "supported",
+          "accelerated_by": [],
+          "fallback": "Use TFLM builtin float kernel.",
+          "unsupported_reason": null,
+          "notes": [
+            "count=3"
+          ]
+        },
+        {
+          "scope": "model_op",
+          "name": "STRIDED_SLICE",
+          "support_level": "supported",
+          "accelerated_by": [],
+          "fallback": "Use TFLM builtin kernel.",
+          "unsupported_reason": null,
+          "notes": [
+            "count=2"
+          ]
+        }
+      ]
+    }
+  ]
+}

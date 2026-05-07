@@ -1,0 +1,571 @@
+{
+  "reference": "restored_pytorch_model",
+  "thresholds": {
+    "synthetic_smoke": {
+      "case_names": [
+        "zeros",
+        "normal_seed_7",
+        "uniform_seed_17"
+      ],
+      "require_finite_outputs": true,
+      "require_shape_match": true
+    },
+    "task_metrics": {
+      "float32": {
+        "max_accuracy_drop": 0.001,
+        "max_macro_f1_drop": 0.001,
+        "min_reference_top1_match_rate": 0.999
+      },
+      "float16": {
+        "max_accuracy_drop": 0.005,
+        "max_macro_f1_drop": 0.005,
+        "min_reference_top1_match_rate": 0.995
+      },
+      "int8": {
+        "max_accuracy_drop": 0.02,
+        "max_macro_f1_drop": 0.02,
+        "min_reference_top1_match_rate": 0.98
+      }
+    }
+  },
+  "summary": {
+    "candidate_count": 3,
+    "validated_precisions": [
+      "int8",
+      "float32"
+    ],
+    "validation_flow": {
+      "synthetic_smoke": {
+        "case_names": [
+          "zeros",
+          "normal_seed_7",
+          "uniform_seed_17"
+        ],
+        "require_finite_outputs": true,
+        "require_shape_match": true
+      },
+      "real_task": {
+        "available": true,
+        "reason": null,
+        "split": "test",
+        "sample_count": 139,
+        "class_names": [
+          "eat",
+          "drink",
+          "other"
+        ],
+        "reference_metrics": {
+          "accuracy": 0.7410071942446043,
+          "macro_precision": 0.6209146574818216,
+          "macro_recall": 0.7201860231271996,
+          "macro_f1": 0.6242812742812743,
+          "confusion_matrix": [
+            [
+              43,
+              16,
+              9
+            ],
+            [
+              0,
+              4,
+              2
+            ],
+            [
+              9,
+              0,
+              56
+            ]
+          ],
+          "per_class": {
+            "eat": {
+              "precision": 0.8269230769230769,
+              "recall": 0.6323529411764706,
+              "f1": 0.7166666666666666,
+              "support": 68
+            },
+            "drink": {
+              "precision": 0.2,
+              "recall": 0.6666666666666666,
+              "f1": 0.30769230769230765,
+              "support": 6
+            },
+            "other": {
+              "precision": 0.835820895522388,
+              "recall": 0.8615384615384616,
+              "f1": 0.8484848484848485,
+              "support": 65
+            }
+          },
+          "logit_min": -5.094390869140625,
+          "logit_max": 5.981905937194824
+        },
+        "thresholds": {
+          "float32": {
+            "max_accuracy_drop": 0.001,
+            "max_macro_f1_drop": 0.001,
+            "min_reference_top1_match_rate": 0.999
+          },
+          "float16": {
+            "max_accuracy_drop": 0.005,
+            "max_macro_f1_drop": 0.005,
+            "min_reference_top1_match_rate": 0.995
+          },
+          "int8": {
+            "max_accuracy_drop": 0.02,
+            "max_macro_f1_drop": 0.02,
+            "min_reference_top1_match_rate": 0.98
+          }
+        }
+      }
+    },
+    "candidate_summary": {
+      "int8": {
+        "validation_pass": true,
+        "validation_mode": "real_task_with_synthetic_smoke",
+        "synthetic_smoke_pass": true,
+        "task_validation_available": true,
+        "task_validation_pass": true,
+        "accuracy": 0.7410071942446043,
+        "macro_f1": 0.6224900734704656,
+        "reference_top1_match_rate": 0.9928057553956835,
+        "worst_smoke_max_abs_error": 13.026222229003906,
+        "worst_smoke_mean_abs_error": 8.532084465026855
+      },
+      "float16": {
+        "validation_pass": false,
+        "validation_mode": "real_task_with_synthetic_smoke",
+        "synthetic_smoke_pass": true,
+        "task_validation_available": true,
+        "task_validation_pass": false,
+        "accuracy": 0.7410071942446043,
+        "macro_f1": 0.6224900734704656,
+        "reference_top1_match_rate": 0.9928057553956835,
+        "worst_smoke_max_abs_error": 0.004420280456542969,
+        "worst_smoke_mean_abs_error": 0.0023295085411518812
+      },
+      "float32": {
+        "validation_pass": true,
+        "validation_mode": "real_task_with_synthetic_smoke",
+        "synthetic_smoke_pass": true,
+        "task_validation_available": true,
+        "task_validation_pass": true,
+        "accuracy": 0.7410071942446043,
+        "macro_f1": 0.6242812742812743,
+        "reference_top1_match_rate": 1.0,
+        "worst_smoke_max_abs_error": 1.9073486328125e-06,
+        "worst_smoke_mean_abs_error": 1.589457156114804e-06
+      }
+    }
+  },
+  "results": [
+    {
+      "group": "synthetic_smoke",
+      "precision": "int8",
+      "target": "zeros",
+      "passed": true,
+      "metrics": {
+        "max_abs_error": 2.904205799102783,
+        "mean_abs_error": 1.505753517150879,
+        "top1_match": true,
+        "reference_top1": [
+          2
+        ],
+        "candidate_top1": [
+          2
+        ],
+        "output_is_finite": true
+      },
+      "notes": [
+        "Compared after quantized input preparation and dequantized output recovery.",
+        "Synthetic smoke only checks runtime viability; task gating happens on real features when available."
+      ]
+    },
+    {
+      "group": "synthetic_smoke",
+      "precision": "int8",
+      "target": "normal_seed_7",
+      "passed": true,
+      "metrics": {
+        "max_abs_error": 10.020299911499023,
+        "mean_abs_error": 6.345747470855713,
+        "top1_match": true,
+        "reference_top1": [
+          2
+        ],
+        "candidate_top1": [
+          2
+        ],
+        "output_is_finite": true
+      },
+      "notes": [
+        "Compared after quantized input preparation and dequantized output recovery.",
+        "Synthetic smoke only checks runtime viability; task gating happens on real features when available."
+      ]
+    },
+    {
+      "group": "synthetic_smoke",
+      "precision": "int8",
+      "target": "uniform_seed_17",
+      "passed": true,
+      "metrics": {
+        "max_abs_error": 13.026222229003906,
+        "mean_abs_error": 8.532084465026855,
+        "top1_match": true,
+        "reference_top1": [
+          2
+        ],
+        "candidate_top1": [
+          2
+        ],
+        "output_is_finite": true
+      },
+      "notes": [
+        "Compared after quantized input preparation and dequantized output recovery.",
+        "Synthetic smoke only checks runtime viability; task gating happens on real features when available."
+      ]
+    },
+    {
+      "group": "real_task",
+      "precision": "int8",
+      "target": "test",
+      "passed": true,
+      "metrics": {
+        "split": "test",
+        "sample_count": 139,
+        "class_names": [
+          "eat",
+          "drink",
+          "other"
+        ],
+        "candidate_metrics": {
+          "accuracy": 0.7410071942446043,
+          "macro_precision": 0.6231447803001797,
+          "macro_recall": 0.7201860231271996,
+          "macro_f1": 0.6224900734704656,
+          "confusion_matrix": [
+            [
+              43,
+              16,
+              9
+            ],
+            [
+              0,
+              4,
+              2
+            ],
+            [
+              8,
+              1,
+              56
+            ]
+          ],
+          "per_class": {
+            "eat": {
+              "precision": 0.8431372549019608,
+              "recall": 0.6323529411764706,
+              "f1": 0.722689075630252,
+              "support": 68
+            },
+            "drink": {
+              "precision": 0.19047619047619047,
+              "recall": 0.6666666666666666,
+              "f1": 0.2962962962962963,
+              "support": 6
+            },
+            "other": {
+              "precision": 0.835820895522388,
+              "recall": 0.8615384615384616,
+              "f1": 0.8484848484848485,
+              "support": 65
+            }
+          }
+        },
+        "accuracy_drop_vs_reference": 0.0,
+        "macro_f1_drop_vs_reference": 0.0017912008108087463,
+        "reference_top1_match_rate": 0.9928057553956835,
+        "mean_abs_logit_diff": 0.07946983724832535,
+        "max_abs_logit_diff": 1.1690607070922852,
+        "threshold": {
+          "max_accuracy_drop": 0.02,
+          "max_macro_f1_drop": 0.02,
+          "min_reference_top1_match_rate": 0.98
+        }
+      },
+      "notes": [
+        "Real-feature validation replays the recovered training frontend on actual audio windows.",
+        "Task gating prefers accuracy/F1/top1 consistency over raw synthetic-logit parity."
+      ]
+    },
+    {
+      "group": "synthetic_smoke",
+      "precision": "float16",
+      "target": "zeros",
+      "passed": true,
+      "metrics": {
+        "max_abs_error": 0.0030183792114257812,
+        "mean_abs_error": 0.0023295085411518812,
+        "top1_match": true,
+        "reference_top1": [
+          2
+        ],
+        "candidate_top1": [
+          2
+        ],
+        "output_is_finite": true
+      },
+      "notes": [
+        "Synthetic smoke only checks runtime viability; task gating happens on real features when available."
+      ]
+    },
+    {
+      "group": "synthetic_smoke",
+      "precision": "float16",
+      "target": "normal_seed_7",
+      "passed": true,
+      "metrics": {
+        "max_abs_error": 0.004420280456542969,
+        "mean_abs_error": 0.0022300083655864,
+        "top1_match": true,
+        "reference_top1": [
+          2
+        ],
+        "candidate_top1": [
+          2
+        ],
+        "output_is_finite": true
+      },
+      "notes": [
+        "Synthetic smoke only checks runtime viability; task gating happens on real features when available."
+      ]
+    },
+    {
+      "group": "synthetic_smoke",
+      "precision": "float16",
+      "target": "uniform_seed_17",
+      "passed": true,
+      "metrics": {
+        "max_abs_error": 0.003909111022949219,
+        "mean_abs_error": 0.0019172033062204719,
+        "top1_match": true,
+        "reference_top1": [
+          2
+        ],
+        "candidate_top1": [
+          2
+        ],
+        "output_is_finite": true
+      },
+      "notes": [
+        "Synthetic smoke only checks runtime viability; task gating happens on real features when available."
+      ]
+    },
+    {
+      "group": "real_task",
+      "precision": "float16",
+      "target": "test",
+      "passed": false,
+      "metrics": {
+        "split": "test",
+        "sample_count": 139,
+        "class_names": [
+          "eat",
+          "drink",
+          "other"
+        ],
+        "candidate_metrics": {
+          "accuracy": 0.7410071942446043,
+          "macro_precision": 0.6231447803001797,
+          "macro_recall": 0.7201860231271996,
+          "macro_f1": 0.6224900734704656,
+          "confusion_matrix": [
+            [
+              43,
+              16,
+              9
+            ],
+            [
+              0,
+              4,
+              2
+            ],
+            [
+              8,
+              1,
+              56
+            ]
+          ],
+          "per_class": {
+            "eat": {
+              "precision": 0.8431372549019608,
+              "recall": 0.6323529411764706,
+              "f1": 0.722689075630252,
+              "support": 68
+            },
+            "drink": {
+              "precision": 0.19047619047619047,
+              "recall": 0.6666666666666666,
+              "f1": 0.2962962962962963,
+              "support": 6
+            },
+            "other": {
+              "precision": 0.835820895522388,
+              "recall": 0.8615384615384616,
+              "f1": 0.8484848484848485,
+              "support": 65
+            }
+          }
+        },
+        "accuracy_drop_vs_reference": 0.0,
+        "macro_f1_drop_vs_reference": 0.0017912008108087463,
+        "reference_top1_match_rate": 0.9928057553956835,
+        "mean_abs_logit_diff": 0.006406577304005623,
+        "max_abs_logit_diff": 0.012187600135803223,
+        "threshold": {
+          "max_accuracy_drop": 0.005,
+          "max_macro_f1_drop": 0.005,
+          "min_reference_top1_match_rate": 0.995
+        }
+      },
+      "notes": [
+        "Real-feature validation replays the recovered training frontend on actual audio windows.",
+        "Task gating prefers accuracy/F1/top1 consistency over raw synthetic-logit parity."
+      ]
+    },
+    {
+      "group": "synthetic_smoke",
+      "precision": "float32",
+      "target": "zeros",
+      "passed": true,
+      "metrics": {
+        "max_abs_error": 7.152557373046875e-07,
+        "mean_abs_error": 5.563099989558395e-07,
+        "top1_match": true,
+        "reference_top1": [
+          2
+        ],
+        "candidate_top1": [
+          2
+        ],
+        "output_is_finite": true
+      },
+      "notes": [
+        "Synthetic smoke only checks runtime viability; task gating happens on real features when available."
+      ]
+    },
+    {
+      "group": "synthetic_smoke",
+      "precision": "float32",
+      "target": "normal_seed_7",
+      "passed": true,
+      "metrics": {
+        "max_abs_error": 1.9073486328125e-06,
+        "mean_abs_error": 1.271565793103946e-06,
+        "top1_match": true,
+        "reference_top1": [
+          2
+        ],
+        "candidate_top1": [
+          2
+        ],
+        "output_is_finite": true
+      },
+      "notes": [
+        "Synthetic smoke only checks runtime viability; task gating happens on real features when available."
+      ]
+    },
+    {
+      "group": "synthetic_smoke",
+      "precision": "float32",
+      "target": "uniform_seed_17",
+      "passed": true,
+      "metrics": {
+        "max_abs_error": 1.9073486328125e-06,
+        "mean_abs_error": 1.589457156114804e-06,
+        "top1_match": true,
+        "reference_top1": [
+          2
+        ],
+        "candidate_top1": [
+          2
+        ],
+        "output_is_finite": true
+      },
+      "notes": [
+        "Synthetic smoke only checks runtime viability; task gating happens on real features when available."
+      ]
+    },
+    {
+      "group": "real_task",
+      "precision": "float32",
+      "target": "test",
+      "passed": true,
+      "metrics": {
+        "split": "test",
+        "sample_count": 139,
+        "class_names": [
+          "eat",
+          "drink",
+          "other"
+        ],
+        "candidate_metrics": {
+          "accuracy": 0.7410071942446043,
+          "macro_precision": 0.6209146574818216,
+          "macro_recall": 0.7201860231271996,
+          "macro_f1": 0.6242812742812743,
+          "confusion_matrix": [
+            [
+              43,
+              16,
+              9
+            ],
+            [
+              0,
+              4,
+              2
+            ],
+            [
+              9,
+              0,
+              56
+            ]
+          ],
+          "per_class": {
+            "eat": {
+              "precision": 0.8269230769230769,
+              "recall": 0.6323529411764706,
+              "f1": 0.7166666666666666,
+              "support": 68
+            },
+            "drink": {
+              "precision": 0.2,
+              "recall": 0.6666666666666666,
+              "f1": 0.30769230769230765,
+              "support": 6
+            },
+            "other": {
+              "precision": 0.835820895522388,
+              "recall": 0.8615384615384616,
+              "f1": 0.8484848484848485,
+              "support": 65
+            }
+          }
+        },
+        "accuracy_drop_vs_reference": 0.0,
+        "macro_f1_drop_vs_reference": 0.0,
+        "reference_top1_match_rate": 1.0,
+        "mean_abs_logit_diff": 1.7590696188563015e-06,
+        "max_abs_logit_diff": 4.172325134277344e-06,
+        "threshold": {
+          "max_accuracy_drop": 0.001,
+          "max_macro_f1_drop": 0.001,
+          "min_reference_top1_match_rate": 0.999
+        }
+      },
+      "notes": [
+        "Real-feature validation replays the recovered training frontend on actual audio windows.",
+        "Task gating prefers accuracy/F1/top1 consistency over raw synthetic-logit parity."
+      ]
+    }
+  ],
+  "golden_dir": null
+}

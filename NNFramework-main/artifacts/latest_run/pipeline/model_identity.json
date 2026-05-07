@@ -1,0 +1,10 @@
+{
+  "framework": "torch",
+  "checkpoint_kind": "training_checkpoint",
+  "model_class_name": "MelCNN",
+  "load_mode": "model_state_dict",
+  "reasons": [
+    "Detected training-checkpoint keys such as epoch/optimizer/model_state_dict."
+  ],
+  "missing_requirements": []
+}

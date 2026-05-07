@@ -1,0 +1,6 @@
+.venv
+.vscode
+test_tflm/build
+*.tflite
+intermediate
+__pycache__

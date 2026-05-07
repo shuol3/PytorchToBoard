@@ -1,0 +1,14 @@
+# SPDX-License-Identifier: Apache-2.0
+
+if BOARD_PENCILV_NRF5340_CPUAPP
+
+config GPIO
+	default y
+
+config CONSOLE
+	default y
+
+config PRINTK
+	default y
+
+endif

@@ -1,0 +1,4 @@
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_PENCILV
+	select SOC_NRF5340_CPUAPP_QKAA if BOARD_PENCILV_NRF5340_CPUAPP

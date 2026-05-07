@@ -1,0 +1,15 @@
+identifier: pencilv/nrf5340/cpuapp
+name: PencilV-NRF5340-Application-MCU
+type: mcu
+arch: arm
+toolchain:
+  - gnuarmemb
+  - zephyr
+ram: 448
+flash: 1024
+supported:
+  - gpio
+  - i2c
+  - i2s
+  - watchdog
+vendor: sungong

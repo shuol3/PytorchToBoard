@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/NRF5340/PytorchToBoard/pencilv_stage_tflite_end2end/build/_sysbuild/sysbuild/images/CMakeFiles/pencilv_stage_tflite_end2end"
+		},
+		{
+			"file" : "D:/NRF5340/PytorchToBoard/pencilv_stage_tflite_end2end/build/_sysbuild/sysbuild/images/CMakeFiles/pencilv_stage_tflite_end2end.rule"
+		},
+		{
+			"file" : "D:/NRF5340/PytorchToBoard/pencilv_stage_tflite_end2end/build/_sysbuild/sysbuild/images/CMakeFiles/pencilv_stage_tflite_end2end-complete.rule"
+		},
+		{
+			"file" : "D:/NRF5340/PytorchToBoard/pencilv_stage_tflite_end2end/build/_sysbuild/sysbuild/images/pencilv_stage_tflite_end2end-prefix/src/pencilv_stage_tflite_end2end-stamp/pencilv_stage_tflite_end2end-build.rule"
+		},
+		{
+			"file" : "D:/NRF5340/PytorchToBoard/pencilv_stage_tflite_end2end/build/_sysbuild/sysbuild/images/pencilv_stage_tflite_end2end-prefix/src/pencilv_stage_tflite_end2end-stamp/pencilv_stage_tflite_end2end-configure.rule"
+		},
+		{
+			"file" : "D:/NRF5340/PytorchToBoard/pencilv_stage_tflite_end2end/build/_sysbuild/sysbuild/images/pencilv_stage_tflite_end2end-prefix/src/pencilv_stage_tflite_end2end-stamp/pencilv_stage_tflite_end2end-download.rule"
+		},
+		{
+			"file" : "D:/NRF5340/PytorchToBoard/pencilv_stage_tflite_end2end/build/_sysbuild/sysbuild/images/pencilv_stage_tflite_end2end-prefix/src/pencilv_stage_tflite_end2end-stamp/pencilv_stage_tflite_end2end-install.rule"
+		},
+		{
+			"file" : "D:/NRF5340/PytorchToBoard/pencilv_stage_tflite_end2end/build/_sysbuild/sysbuild/images/pencilv_stage_tflite_end2end-prefix/src/pencilv_stage_tflite_end2end-stamp/pencilv_stage_tflite_end2end-mkdir.rule"
+		},
+		{
+			"file" : "D:/NRF5340/PytorchToBoard/pencilv_stage_tflite_end2end/build/_sysbuild/sysbuild/images/pencilv_stage_tflite_end2end-prefix/src/pencilv_stage_tflite_end2end-stamp/pencilv_stage_tflite_end2end-patch.rule"
+		},
+		{
+			"file" : "D:/NRF5340/PytorchToBoard/pencilv_stage_tflite_end2end/build/_sysbuild/sysbuild/images/pencilv_stage_tflite_end2end-prefix/src/pencilv_stage_tflite_end2end-stamp/pencilv_stage_tflite_end2end-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"pencilv_stage_tflite_end2end"
+		],
+		"name" : "pencilv_stage_tflite_end2end"
+	}
+}

@@ -1,0 +1,6 @@
+board:
+  name: pencilv
+  full_name: PencilV nRF5340 Audio Node
+  vendor: sungong
+  socs:
+    - name: nrf5340

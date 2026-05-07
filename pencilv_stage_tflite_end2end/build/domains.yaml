@@ -1,0 +1,7 @@
+default: pencilv_stage_tflite_end2end
+build_dir: D:/NRF5340/PytorchToBoard/pencilv_stage_tflite_end2end/build
+domains:
+  - name: pencilv_stage_tflite_end2end
+    build_dir: D:/NRF5340/PytorchToBoard/pencilv_stage_tflite_end2end/build/pencilv_stage_tflite_end2end
+flash_order:
+  - pencilv_stage_tflite_end2end

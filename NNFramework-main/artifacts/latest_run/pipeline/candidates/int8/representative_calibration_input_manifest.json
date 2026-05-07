@@ -1,0 +1,2362 @@
+{
+  "calibration_source": "representative",
+  "config_path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\artifacts\\latest_run\\resolved_config.yaml",
+  "data_root": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data",
+  "split": "train",
+  "selection_mode": "default_per_class",
+  "requested_samples": 110,
+  "actual_samples": 110,
+  "input_shape_nchw": [
+    1,
+    1,
+    48,
+    94
+  ],
+  "tf_calibration_shape": [
+    110,
+    48,
+    94,
+    1
+  ],
+  "class_names": [
+    "eat",
+    "drink",
+    "other"
+  ],
+  "default_target_counts": {
+    "eat": 30,
+    "drink": 30,
+    "other": 50
+  },
+  "target_counts": {
+    "eat": 30,
+    "drink": 30,
+    "other": 50
+  },
+  "available_class_counts": {
+    "eat": 629,
+    "drink": 193,
+    "other": 383
+  },
+  "class_counts": {
+    "eat": 30,
+    "drink": 30,
+    "other": 50
+  },
+  "observed_feature_shapes": {
+    "48x94x1": 110
+  },
+  "shape_adaptation_count": 0,
+  "selected_records": [
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\bianmu\\5.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 448000,
+      "end_sample": 464000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\7.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 16000,
+      "end_sample": 32000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\11.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 240000,
+      "end_sample": 256000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\bianmu\\3.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 432000,
+      "end_sample": 448000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\12.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 640000,
+      "end_sample": 656000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\14.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 160000,
+      "end_sample": 176000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\bianmu\\5.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 80000,
+      "end_sample": 96000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\12.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 80000,
+      "end_sample": 96000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\23.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 80000,
+      "end_sample": 96000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\fadou\\2.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 256000,
+      "end_sample": 272000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\12.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 48000,
+      "end_sample": 64000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\11.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 176000,
+      "end_sample": 192000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\bianmu\\4.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 384000,
+      "end_sample": 400000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\12.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 368000,
+      "end_sample": 384000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\21.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 304000,
+      "end_sample": 320000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\labuladuo\\6.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 192000,
+      "end_sample": 208000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\14.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 224000,
+      "end_sample": 240000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\20.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 480000,
+      "end_sample": 496000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\bianmu\\1.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 64000,
+      "end_sample": 80000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\10.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 384000,
+      "end_sample": 400000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\18.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 432000,
+      "end_sample": 448000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\fadou\\7.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 1760000,
+      "end_sample": 1776000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\13.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 176000,
+      "end_sample": 192000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\16.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 112000,
+      "end_sample": 128000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\fadou\\7.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 96000,
+      "end_sample": 112000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\14.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 272000,
+      "end_sample": 288000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\3.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 208000,
+      "end_sample": 224000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\fadou\\8.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 416000,
+      "end_sample": 432000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\14.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 192000,
+      "end_sample": 208000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\22.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 208000,
+      "end_sample": 224000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\fadou\\7.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 1584000,
+      "end_sample": 1600000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\10.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 32000,
+      "end_sample": 48000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\16.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 80000,
+      "end_sample": 96000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\bianmu\\3.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 0,
+      "end_sample": 16000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\11.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 144000,
+      "end_sample": 160000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\14.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 128000,
+      "end_sample": 144000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\fadou\\7.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 1696000,
+      "end_sample": 1712000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\1.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 0,
+      "end_sample": 16000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\3.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 384000,
+      "end_sample": 400000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\fadou\\1.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 144000,
+      "end_sample": 160000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\12.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 0,
+      "end_sample": 16000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\12.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 32000,
+      "end_sample": 48000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\fadou\\7.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 432000,
+      "end_sample": 448000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\14.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 352000,
+      "end_sample": 368000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\14.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 32000,
+      "end_sample": 48000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\labuladuo\\7.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 32000,
+      "end_sample": 48000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\13.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 337671,
+      "end_sample": 353671,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\12.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 16000,
+      "end_sample": 32000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\fadou\\8.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 832000,
+      "end_sample": 848000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\14.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 80000,
+      "end_sample": 96000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\6.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 16000,
+      "end_sample": 32000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\labuladuo\\5.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 432000,
+      "end_sample": 448000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\10.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 409500,
+      "end_sample": 425500,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\1.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 576202,
+      "end_sample": 592202,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\fadou\\2.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 448000,
+      "end_sample": 464000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\7.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 80000,
+      "end_sample": 96000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\11.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 432000,
+      "end_sample": 448000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\fadou\\8.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 1152000,
+      "end_sample": 1168000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\13.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 256000,
+      "end_sample": 272000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\20.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 80000,
+      "end_sample": 96000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\labuladuo\\9.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 32000,
+      "end_sample": 48000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\10.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 96000,
+      "end_sample": 112000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\18.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 448000,
+      "end_sample": 464000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\fadou\\7.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 736000,
+      "end_sample": 752000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\13.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 32000,
+      "end_sample": 48000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\23.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 270552,
+      "end_sample": 286552,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\fadou\\8.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 688000,
+      "end_sample": 704000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\12.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 736000,
+      "end_sample": 752000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\1.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 416000,
+      "end_sample": 432000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\fadou\\7.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 1744000,
+      "end_sample": 1760000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\10.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 176000,
+      "end_sample": 192000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\20.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 176000,
+      "end_sample": 192000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\labuladuo\\2.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 0,
+      "end_sample": 16000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\12.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 864000,
+      "end_sample": 880000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\21.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 272000,
+      "end_sample": 288000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\labuladuo\\9.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 352000,
+      "end_sample": 368000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\12.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 816000,
+      "end_sample": 832000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\1.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 128000,
+      "end_sample": 144000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\bianmu\\3.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 32000,
+      "end_sample": 48000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\10.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 256000,
+      "end_sample": 272000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\18.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 592000,
+      "end_sample": 608000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\fadou\\8.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 384000,
+      "end_sample": 400000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\13.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 16000,
+      "end_sample": 32000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\1.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 496000,
+      "end_sample": 512000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\fadou\\1.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 0,
+      "end_sample": 16000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\2.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 128000,
+      "end_sample": 144000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\11.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 368000,
+      "end_sample": 384000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\fadou\\1.wav",
+      "label_index": 0,
+      "label_name": "eat",
+      "split": "train",
+      "start_sample": 80000,
+      "end_sample": 96000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\12.wav",
+      "label_index": 1,
+      "label_name": "drink",
+      "split": "train",
+      "start_sample": 544000,
+      "end_sample": 560000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\10.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 256000,
+      "end_sample": 272000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\10.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 320000,
+      "end_sample": 336000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\3.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 544000,
+      "end_sample": 560000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\18.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 16000,
+      "end_sample": 32000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\23.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 224000,
+      "end_sample": 240000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\10.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 464000,
+      "end_sample": 480000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\1.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 256000,
+      "end_sample": 272000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\3.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 160000,
+      "end_sample": 176000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\21.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 448000,
+      "end_sample": 464000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\18.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 0,
+      "end_sample": 16000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\23.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 256000,
+      "end_sample": 272000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\16.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 48000,
+      "end_sample": 64000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\3.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 560000,
+      "end_sample": 576000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\3.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 400000,
+      "end_sample": 416000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\3.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 272000,
+      "end_sample": 288000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\16.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 32000,
+      "end_sample": 48000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\7.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 32000,
+      "end_sample": 48000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\6.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 96000,
+      "end_sample": 112000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\10.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 368000,
+      "end_sample": 384000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\22.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 16000,
+      "end_sample": 32000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    },
+    {
+      "path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\7.wav",
+      "label_index": 2,
+      "label_name": "other",
+      "split": "train",
+      "start_sample": 80000,
+      "end_sample": 96000,
+      "shape_alignment": {
+        "original_shape": [
+          48,
+          94,
+          1
+        ],
+        "target_shape": [
+          48,
+          94,
+          1
+        ],
+        "adjustments": []
+      }
+    }
+  ]
+}

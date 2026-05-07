@@ -1,0 +1,184 @@
+{
+  "config_path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\train_1s.yaml",
+  "data_root": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data",
+  "output_dir": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\calibration_data",
+  "selection_parameters": {
+    "hop_sec": 1.0,
+    "window_sec": 1.0,
+    "min_gap_sec_per_file": 1.0,
+    "max_windows_per_file": 3,
+    "min_rms": 0.003,
+    "max_clip_ratio": 0.01,
+    "max_zero_ratio": 0.98,
+    "seed": 42
+  },
+  "target_counts": {
+    "eat": 40,
+    "drink": 40,
+    "other": 60
+  },
+  "candidate_counts": {
+    "eat": 740,
+    "drink": 215,
+    "other": 244
+  },
+  "rejection_summary": {
+    "eat": {
+      "accepted": 740,
+      "rejected_low_rms": 143,
+      "rejected_high_clip_ratio": 0,
+      "rejected_high_zero_ratio": 0
+    },
+    "drink": {
+      "accepted": 215,
+      "rejected_low_rms": 84,
+      "rejected_high_clip_ratio": 0,
+      "rejected_high_zero_ratio": 0
+    },
+    "other": {
+      "accepted": 244,
+      "rejected_low_rms": 332,
+      "rejected_high_clip_ratio": 0,
+      "rejected_high_zero_ratio": 0
+    }
+  },
+  "selection_summary": {
+    "eat": {
+      "class_name": "eat",
+      "requested_count": 40,
+      "available_after_filtering": 740,
+      "selected_count": 40,
+      "selected_by_bucket": {
+        "low": 14,
+        "mid": 13,
+        "high": 13
+      },
+      "selected_by_file": {
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\labuladuo\\8.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\labuladuo\\9.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\labuladuo\\4.wav": 2,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\fadou\\7.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\labuladuo\\2.wav": 1,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\labuladuo\\1.wav": 2,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\fadou\\8.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\fadou\\4.wav": 2,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\bianmu\\7.wav": 2,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\labuladuo\\6.wav": 2,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\fadou\\6.wav": 1,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\labuladuo\\3.wav": 2,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\fadou\\2.wav": 2,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\fadou\\5.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\bianmu\\2.wav": 1,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\bianmu\\3.wav": 1,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\labuladuo\\5.wav": 1,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\fadou\\3.wav": 2,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\fadou\\1.wav": 1,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\bianmu\\1.wav": 1,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\labuladuo\\7.wav": 1,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\eat\\bianmu\\5.wav": 1
+      },
+      "bucket_targets": {
+        "low": 14,
+        "mid": 13,
+        "high": 13
+      },
+      "available_by_bucket": {
+        "low": 247,
+        "mid": 246,
+        "high": 247
+      }
+    },
+    "drink": {
+      "class_name": "drink",
+      "requested_count": 40,
+      "available_after_filtering": 215,
+      "selected_count": 30,
+      "selected_by_bucket": {
+        "low": 17,
+        "mid": 10,
+        "high": 3
+      },
+      "selected_by_file": {
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\12.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\7.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\9.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\3.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\6.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\11.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\14.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\5.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\10.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\drink\\13.wav": 3
+      },
+      "bucket_targets": {
+        "low": 14,
+        "mid": 13,
+        "high": 13
+      },
+      "available_by_bucket": {
+        "low": 72,
+        "mid": 71,
+        "high": 72
+      }
+    },
+    "other": {
+      "class_name": "other",
+      "requested_count": 60,
+      "available_after_filtering": 244,
+      "selected_count": 55,
+      "selected_by_bucket": {
+        "low": 21,
+        "mid": 21,
+        "high": 13
+      },
+      "selected_by_file": {
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\13.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\23.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\1.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\9.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\21.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\20.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\4.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\22.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\12.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\8.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\11.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\7.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\3.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\14.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\10.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\6.wav": 1,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\17.wav": 2,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\19.wav": 3,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\18.wav": 1,
+        "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\data\\other\\15.wav": 3
+      },
+      "bucket_targets": {
+        "low": 20,
+        "mid": 20,
+        "high": 20
+      },
+      "available_by_bucket": {
+        "low": 81,
+        "mid": 82,
+        "high": 81
+      }
+    }
+  },
+  "exported_arrays": {
+    "nchw_path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\calibration_data\\calibration_input_nchw.npy",
+    "nhwc_path": "D:\\NRF5340\\PytorchToBoard\\NNFramework-main\\in\\calibration_data\\calibration_input_nhwc.npy",
+    "nchw_shape": [
+      125,
+      1,
+      48,
+      94
+    ],
+    "nhwc_shape": [
+      125,
+      48,
+      94,
+      1
+    ]
+  }
+}

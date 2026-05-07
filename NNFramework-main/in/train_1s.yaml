@@ -1,0 +1,84 @@
+seed: 42
+
+paths:
+  data_root: original_data
+  output_dir: outputs/run_1s
+  checkpoint_name: best_model.pt
+  metrics_name: metrics.json
+
+data:
+  classes: [eat, drink, other]
+  audio_extensions: [.wav, .mp3, .flac, .m4a, .ogg, .aac]
+
+audio:
+  sample_rate: 16000
+  window_sec: 1.0
+  hop_sec: 1.0
+  pad_short: true
+  bandpass:
+    enabled: true
+    low_hz: 3000
+    high_hz: 7900
+    order: 4
+
+feature:
+  n_fft: 1024
+  win_length: 400
+  hop_length: 160
+  n_mels: 48
+  fmin: 3000
+  fmax: 7900
+  power: 2.0
+  center: false
+  top_db: 80.0
+  normalize: true
+
+split:
+  # 文件级划分比例：同一个原始音频文件只会进入 train/val/test 中的一个集合。
+  val_ratio: 0.25
+  test_ratio: 0.15
+
+train:
+  epochs: 100
+  batch_size: 64
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  num_workers: 0
+  # 没有 NVIDIA CUDA 环境就用 cpu；有 CUDA 可以改成 cuda。
+  device: cuda
+
+scheduler:
+  enabled: true
+  factor: 0.5
+  patience: 5
+  min_lr: 0.000001
+
+early_stopping:
+  enabled: true
+  patience: 15
+  min_delta: 0.0
+
+augment:
+  enabled: false
+  random_gain: [0.9, 1.1]
+  gaussian_noise_std: 0.01
+  time_shift_bins: 2
+  time_mask_bins: 3
+  freq_mask_bins: 3
+
+model:
+  # 比原来 [16, 32] 稍强一点，但仍然是轻量模型。
+  channels: [16, 32, 64]
+  hidden_dim: 96
+  dropout: 0.25
+
+bandpass_sweep:
+  # 运行 python train_1s.py --config configs/train_1s.yaml --sweep-bandpass 时使用。
+  full_band_fmin: 50
+  full_band_fmax: 7600
+  bands:
+    - {enabled: false, low_hz: 0, high_hz: 0, order: 4}
+    - {enabled: true, low_hz: 1000, high_hz: 7000, order: 4}
+    - {enabled: true, low_hz: 2000, high_hz: 7000, order: 4}
+    - {enabled: true, low_hz: 3000, high_hz: 7000, order: 4}
+    - {enabled: true, low_hz: 3000, high_hz: 7900, order: 4}

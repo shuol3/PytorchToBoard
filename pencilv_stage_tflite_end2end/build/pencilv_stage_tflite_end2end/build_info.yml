@@ -1,0 +1,53 @@
+cmake:
+  application:
+    configuration-dir: 'D:/NRF5340/PytorchToBoard/pencilv_stage_tflite_end2end'
+    source-dir: 'D:/NRF5340/PytorchToBoard/pencilv_stage_tflite_end2end'
+  board:
+    name: 'pencilv'
+    path:
+     - 'D:/NRF5340/PytorchToBoard/pencilv_stage_tflite_end2end/boards/arm/pencilv'
+    qualifiers: 'nrf5340/cpuapp'
+    revision: ''
+  devicetree:
+    bindings-dirs:
+     - 'C:/ncs/v3.2.0/nrf/dts/bindings'
+     - 'C:/ncs/v3.2.0/zephyr/dts/bindings'
+    files:
+     - 'D:/NRF5340/PytorchToBoard/pencilv_stage_tflite_end2end/boards/arm/pencilv/pencilv_nrf5340_cpuapp.dts'
+    include-dirs:
+     - 'C:/ncs/v3.2.0/nrf/include'
+     - 'C:/ncs/v3.2.0/nrf/dts/common'
+     - 'C:/ncs/v3.2.0/nrf/dts/riscv'
+     - 'C:/ncs/v3.2.0/nrf/dts/arm'
+     - 'C:/ncs/v3.2.0/nrf/dts'
+     - 'C:/ncs/v3.2.0/zephyr/include'
+     - 'C:/ncs/v3.2.0/zephyr/include/zephyr'
+     - 'C:/ncs/v3.2.0/zephyr/dts/common'
+     - 'C:/ncs/v3.2.0/zephyr/dts/vendor'
+     - 'C:/ncs/v3.2.0/zephyr/dts/rx'
+     - 'C:/ncs/v3.2.0/zephyr/dts/x86'
+     - 'C:/ncs/v3.2.0/zephyr/dts/xtensa'
+     - 'C:/ncs/v3.2.0/zephyr/dts/sparc'
+     - 'C:/ncs/v3.2.0/zephyr/dts/riscv'
+     - 'C:/ncs/v3.2.0/zephyr/dts/posix'
+     - 'C:/ncs/v3.2.0/zephyr/dts/arm64'
+     - 'C:/ncs/v3.2.0/zephyr/dts/arm'
+     - 'C:/ncs/v3.2.0/zephyr/dts/arc'
+     - 'C:/ncs/v3.2.0/zephyr/dts'
+  kconfig:
+    files:
+     - 'D:/NRF5340/PytorchToBoard/pencilv_stage_tflite_end2end/boards/arm/pencilv/pencilv_nrf5340_cpuapp_defconfig'
+     - 'D:/NRF5340/PytorchToBoard/pencilv_stage_tflite_end2end/prj.conf'
+     - 'D:/NRF5340/PytorchToBoard/pencilv_stage_tflite_end2end/build/pencilv_stage_tflite_end2end/zephyr/.config.sysbuild'
+    user-files:
+     - 'D:/NRF5340/PytorchToBoard/pencilv_stage_tflite_end2end/prj.conf'
+  toolchain:
+    name: 'zephyr'
+    path: 'C:/ncs/toolchains/66cdf9b75e/opt/zephyr-sdk'
+  vendor-specific:
+    nordic:
+      svdfile: 'C:/ncs/v3.2.0/modules/hal/nordic/nrfx/bsp/stable/mdk/nrf5340_application.svd'
+  zephyr:
+    version: '4.2.99'
+    zephyr-base: 'C:/ncs/v3.2.0/zephyr'
+version: '0.1.0'

@@ -1,0 +1,132 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+
+/dts-v1/;
+#include <nordic/nrf5340_cpuapp_qkaa.dtsi>
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include "pencilv-pinctrl.dtsi"
+
+/ {
+    model = "SunGong PencilV nRF5340 Audio Node";
+    compatible = "sungong,pencilv-nrf5340";
+
+    chosen {
+        zephyr,sram = &sram0_image;
+        zephyr,flash = &flash0;
+        zephyr,code-partition = &slot0_partition;
+    };
+
+    reserved-memory {
+        #address-cells = <1>;
+        #size-cells = <1>;
+        ranges;
+
+        sram0_image: image@20000000 {
+            reg = <0x20000000 0x70000>;
+        };
+
+        sram0_shared: memory@20070000 {
+            reg = <0x20070000 0x10000>;
+        };
+    };
+
+    aliases {
+        mic-en = &mic_en;
+        imu-en = &imu_en;
+        chrg-in = &chrg_in;
+        stdby-in = &stdby_in;
+        imu-int = &imu_int1;
+    };
+
+    power_enables {
+        compatible = "gpio-leds";
+
+        mic_en: mic_en {
+            gpios = <&gpio1 9 GPIO_ACTIVE_LOW>;
+            label = "MIC_ENABLE";
+        };
+
+        imu_en: imu_en {
+            gpios = <&gpio0 24 GPIO_ACTIVE_LOW>;
+            label = "IMU_ENABLE";
+        };
+    };
+
+    status_inputs {
+        compatible = "gpio-keys";
+
+        chrg_in: chrg_in {
+            gpios = <&gpio0 20 GPIO_ACTIVE_LOW>;
+            label = "CHRG_STATUS";
+        };
+
+        stdby_in: stdby_in {
+            gpios = <&gpio0 19 GPIO_ACTIVE_LOW>;
+            label = "STDBY_STATUS";
+        };
+    };
+
+    ints {
+        compatible = "gpio-keys";
+
+        imu_int1: imu_int1 {
+            gpios = <&gpio0 26 GPIO_ACTIVE_HIGH>;
+            label = "IMU_INT1";
+        };
+    };
+};
+
+&gpiote {
+    status = "okay";
+};
+
+&gpio0 {
+    status = "okay";
+};
+
+&gpio1 {
+    status = "okay";
+};
+
+&i2c1 {
+    compatible = "nordic,nrf-twim";
+    status = "okay";
+    pinctrl-0 = <&i2c1_default>;
+    pinctrl-1 = <&i2c1_sleep>;
+    pinctrl-names = "default", "sleep";
+    clock-frequency = <I2C_BITRATE_FAST>;
+};
+
+&i2s0 {
+    status = "okay";
+    pinctrl-0 = <&i2s0_default>;
+    pinctrl-1 = <&i2s0_sleep>;
+    pinctrl-names = "default", "sleep";
+};
+
+&flash0 {
+    partitions {
+        compatible = "fixed-partitions";
+        #address-cells = <1>;
+        #size-cells = <1>;
+
+        boot_partition: partition@0 {
+            label = "mcuboot";
+            reg = <0x00000000 0x00010000>;
+        };
+
+        slot0_partition: partition@10000 {
+            label = "image-0";
+            reg = <0x00010000 0x00060000>;
+        };
+
+        slot1_partition: partition@70000 {
+            label = "image-1";
+            reg = <0x00070000 0x00060000>;
+        };
+
+        storage_partition: partition@d0000 {
+            label = "storage";
+            reg = <0x000d0000 0x00030000>;
+        };
+    };
+};

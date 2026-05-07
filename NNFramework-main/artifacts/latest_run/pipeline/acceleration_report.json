@@ -1,0 +1,829 @@
+{
+  "candidates": [
+    {
+      "precision": "int8",
+      "export_ok": true,
+      "deployable": true,
+      "accelerated": "partial",
+      "summary": {
+        "precision": "int8",
+        "database_versions": {
+          "preprocess": {
+            "schema_version": "1.0",
+            "library_version": "manual-baseline"
+          },
+          "cmsis_nn": {
+            "schema_version": "1.0",
+            "library_version": "manual-baseline"
+          },
+          "tflm_builtin": {
+            "schema_version": "1.0",
+            "library_version": "manual-baseline"
+          }
+        },
+        "deployable": true,
+        "enabled_preprocess_steps": [
+          "bandpass",
+          "stft",
+          "mel",
+          "db_compression",
+          "normalize"
+        ],
+        "model_ops": [
+          {
+            "op_name": "AVERAGE_POOL_2D",
+            "count": 1
+          },
+          {
+            "op_name": "CONV_2D",
+            "count": 3
+          },
+          {
+            "op_name": "FULLY_CONNECTED",
+            "count": 2
+          },
+          {
+            "op_name": "MAX_POOL_2D",
+            "count": 3
+          },
+          {
+            "op_name": "STRIDED_SLICE",
+            "count": 2
+          }
+        ],
+        "accelerated_items": [
+          "preprocess:stft",
+          "preprocess:mel",
+          "preprocess:db_compression",
+          "preprocess:normalize",
+          "model_op:AVERAGE_POOL_2D",
+          "model_op:CONV_2D",
+          "model_op:FULLY_CONNECTED",
+          "model_op:MAX_POOL_2D"
+        ],
+        "not_fully_accelerated_items": [
+          "preprocess:bandpass",
+          "model_op:STRIDED_SLICE"
+        ],
+        "unsupported_items": [],
+        "accelerated_count": 8,
+        "not_fully_accelerated_count": 2,
+        "unsupported_count": 0,
+        "board_runtime_supported": true,
+        "board_runtime_unsupported_items": [],
+        "board_runtime_unsupported_reasons": {},
+        "board_runtime_warnings": [
+          "audio.bandpass is kept as metadata only in the current deployment flow; the generated runtime does not apply an extra time-domain bandpass stage.",
+          "Generated board runtime reconstructs the frontend in canonical NCHW order and then adapts it into the TFLite input layout."
+        ],
+        "board_runtime_expected": {
+          "sample_rate_hz": 16000,
+          "capture_window_ms": 1000,
+          "frame_length_ms": 25,
+          "frame_stride_ms": 10,
+          "fft_length": 1024,
+          "mel_bin_count": 48,
+          "feature_frame_count": 94,
+          "feature_element_count": 4512,
+          "mel_lower_edge_hz": 3000,
+          "mel_upper_edge_hz": 7900,
+          "top_db": 80.0
+        },
+        "board_runtime_supported_input_shapes": [
+          [
+            1,
+            1,
+            48,
+            94
+          ],
+          [
+            1,
+            48,
+            94,
+            1
+          ],
+          [
+            1,
+            1,
+            94,
+            48
+          ],
+          [
+            1,
+            94,
+            48,
+            1
+          ],
+          [
+            1,
+            48,
+            94
+          ],
+          [
+            1,
+            94,
+            48
+          ],
+          [
+            1,
+            1,
+            4512
+          ],
+          [
+            1,
+            4512,
+            1
+          ],
+          [
+            1,
+            4512
+          ]
+        ]
+      },
+      "preprocess_report": [
+        {
+          "scope": "preprocess",
+          "name": "bandpass",
+          "support_level": "fallback",
+          "accelerated_by": [],
+          "fallback": "Current deployment flow keeps bandpass as metadata only; no board-runtime bandpass stage is generated yet.",
+          "unsupported_reason": null,
+          "notes": [
+            "CMSIS-DSP biquad/FIR acceleration is feasible, but the lowering path is still TODO.",
+            "params={'low_hz': 3000, 'high_hz': 7900, 'order': 4}"
+          ]
+        },
+        {
+          "scope": "preprocess",
+          "name": "stft",
+          "support_level": "accelerated",
+          "accelerated_by": [
+            "CMSIS-DSP RFFT/vector kernels"
+          ],
+          "fallback": null,
+          "unsupported_reason": null,
+          "notes": [
+            "Generated board runner lowers windowing, RFFT, and power spectrum onto CMSIS-DSP helpers.",
+            "params={'n_fft': 1024, 'win_length': 400, 'hop_length': 160, 'center': False}"
+          ]
+        },
+        {
+          "scope": "preprocess",
+          "name": "mel",
+          "support_level": "accelerated",
+          "accelerated_by": [
+            "CMSIS-DSP dot-product kernels"
+          ],
+          "fallback": null,
+          "unsupported_reason": null,
+          "notes": [
+            "Generated board runner uses offline sparse mel coefficients plus CMSIS-DSP dot products.",
+            "params={'n_mels': 48, 'fmin': 3000, 'fmax': 7900, 'power': 2.0}"
+          ]
+        },
+        {
+          "scope": "preprocess",
+          "name": "db_compression",
+          "support_level": "accelerated",
+          "accelerated_by": [
+            "CMSIS-DSP vector log/scale kernels"
+          ],
+          "fallback": null,
+          "unsupported_reason": null,
+          "notes": [
+            "params={'top_db': 80.0}"
+          ]
+        },
+        {
+          "scope": "preprocess",
+          "name": "normalize",
+          "support_level": "accelerated",
+          "accelerated_by": [
+            "CMSIS-DSP statistics and scale kernels"
+          ],
+          "fallback": null,
+          "unsupported_reason": null,
+          "notes": [
+            "params={'mode': 'per_sample_standardize'}"
+          ]
+        }
+      ],
+      "model_op_report": [
+        {
+          "scope": "model_op",
+          "name": "AVERAGE_POOL_2D",
+          "support_level": "accelerated",
+          "accelerated_by": [
+            "CMSIS-NN"
+          ],
+          "fallback": null,
+          "unsupported_reason": null,
+          "notes": [
+            "count=1"
+          ]
+        },
+        {
+          "scope": "model_op",
+          "name": "CONV_2D",
+          "support_level": "accelerated",
+          "accelerated_by": [
+            "CMSIS-NN"
+          ],
+          "fallback": null,
+          "unsupported_reason": null,
+          "notes": [
+            "count=3"
+          ]
+        },
+        {
+          "scope": "model_op",
+          "name": "FULLY_CONNECTED",
+          "support_level": "accelerated",
+          "accelerated_by": [
+            "CMSIS-NN"
+          ],
+          "fallback": null,
+          "unsupported_reason": null,
+          "notes": [
+            "count=2"
+          ]
+        },
+        {
+          "scope": "model_op",
+          "name": "MAX_POOL_2D",
+          "support_level": "accelerated",
+          "accelerated_by": [
+            "CMSIS-NN"
+          ],
+          "fallback": null,
+          "unsupported_reason": null,
+          "notes": [
+            "count=3"
+          ]
+        },
+        {
+          "scope": "model_op",
+          "name": "STRIDED_SLICE",
+          "support_level": "supported",
+          "accelerated_by": [],
+          "fallback": "Use TFLM builtin kernel.",
+          "unsupported_reason": null,
+          "notes": [
+            "count=2"
+          ]
+        }
+      ]
+    },
+    {
+      "precision": "float16",
+      "export_ok": true,
+      "deployable": true,
+      "accelerated": "partial",
+      "summary": {
+        "precision": "float16",
+        "database_versions": {
+          "preprocess": {
+            "schema_version": "1.0",
+            "library_version": "manual-baseline"
+          },
+          "cmsis_nn": {
+            "schema_version": "1.0",
+            "library_version": "manual-baseline"
+          },
+          "tflm_builtin": {
+            "schema_version": "1.0",
+            "library_version": "manual-baseline"
+          }
+        },
+        "deployable": true,
+        "enabled_preprocess_steps": [
+          "bandpass",
+          "stft",
+          "mel",
+          "db_compression",
+          "normalize"
+        ],
+        "model_ops": [
+          {
+            "op_name": "AVERAGE_POOL_2D",
+            "count": 1
+          },
+          {
+            "op_name": "CONV_2D",
+            "count": 3
+          },
+          {
+            "op_name": "DEQUANTIZE",
+            "count": 10
+          },
+          {
+            "op_name": "FULLY_CONNECTED",
+            "count": 2
+          },
+          {
+            "op_name": "MAX_POOL_2D",
+            "count": 3
+          },
+          {
+            "op_name": "STRIDED_SLICE",
+            "count": 2
+          }
+        ],
+        "accelerated_items": [
+          "preprocess:stft",
+          "preprocess:mel",
+          "preprocess:db_compression",
+          "preprocess:normalize"
+        ],
+        "not_fully_accelerated_items": [
+          "preprocess:bandpass",
+          "model_op:AVERAGE_POOL_2D",
+          "model_op:CONV_2D",
+          "model_op:DEQUANTIZE",
+          "model_op:FULLY_CONNECTED",
+          "model_op:MAX_POOL_2D",
+          "model_op:STRIDED_SLICE"
+        ],
+        "unsupported_items": [],
+        "accelerated_count": 4,
+        "not_fully_accelerated_count": 7,
+        "unsupported_count": 0,
+        "board_runtime_supported": true,
+        "board_runtime_unsupported_items": [],
+        "board_runtime_unsupported_reasons": {},
+        "board_runtime_warnings": [
+          "audio.bandpass is kept as metadata only in the current deployment flow; the generated runtime does not apply an extra time-domain bandpass stage.",
+          "Generated board runtime reconstructs the frontend in canonical NCHW order and then adapts it into the TFLite input layout."
+        ],
+        "board_runtime_expected": {
+          "sample_rate_hz": 16000,
+          "capture_window_ms": 1000,
+          "frame_length_ms": 25,
+          "frame_stride_ms": 10,
+          "fft_length": 1024,
+          "mel_bin_count": 48,
+          "feature_frame_count": 94,
+          "feature_element_count": 4512,
+          "mel_lower_edge_hz": 3000,
+          "mel_upper_edge_hz": 7900,
+          "top_db": 80.0
+        },
+        "board_runtime_supported_input_shapes": [
+          [
+            1,
+            1,
+            48,
+            94
+          ],
+          [
+            1,
+            48,
+            94,
+            1
+          ],
+          [
+            1,
+            1,
+            94,
+            48
+          ],
+          [
+            1,
+            94,
+            48,
+            1
+          ],
+          [
+            1,
+            48,
+            94
+          ],
+          [
+            1,
+            94,
+            48
+          ],
+          [
+            1,
+            1,
+            4512
+          ],
+          [
+            1,
+            4512,
+            1
+          ],
+          [
+            1,
+            4512
+          ]
+        ],
+        "notes": [
+          "Float16 export is treated as deployable only through TFLM builtin kernels; CMSIS-NN acceleration is not assumed."
+        ]
+      },
+      "preprocess_report": [
+        {
+          "scope": "preprocess",
+          "name": "bandpass",
+          "support_level": "fallback",
+          "accelerated_by": [],
+          "fallback": "Current deployment flow keeps bandpass as metadata only; no board-runtime bandpass stage is generated yet.",
+          "unsupported_reason": null,
+          "notes": [
+            "CMSIS-DSP biquad/FIR acceleration is feasible, but the lowering path is still TODO.",
+            "params={'low_hz': 3000, 'high_hz': 7900, 'order': 4}"
+          ]
+        },
+        {
+          "scope": "preprocess",
+          "name": "stft",
+          "support_level": "accelerated",
+          "accelerated_by": [
+            "CMSIS-DSP RFFT/vector kernels"
+          ],
+          "fallback": null,
+          "unsupported_reason": null,
+          "notes": [
+            "Generated board runner lowers windowing, RFFT, and power spectrum onto CMSIS-DSP helpers.",
+            "params={'n_fft': 1024, 'win_length': 400, 'hop_length': 160, 'center': False}"
+          ]
+        },
+        {
+          "scope": "preprocess",
+          "name": "mel",
+          "support_level": "accelerated",
+          "accelerated_by": [
+            "CMSIS-DSP dot-product kernels"
+          ],
+          "fallback": null,
+          "unsupported_reason": null,
+          "notes": [
+            "Generated board runner uses offline sparse mel coefficients plus CMSIS-DSP dot products.",
+            "params={'n_mels': 48, 'fmin': 3000, 'fmax': 7900, 'power': 2.0}"
+          ]
+        },
+        {
+          "scope": "preprocess",
+          "name": "db_compression",
+          "support_level": "accelerated",
+          "accelerated_by": [
+            "CMSIS-DSP vector log/scale kernels"
+          ],
+          "fallback": null,
+          "unsupported_reason": null,
+          "notes": [
+            "params={'top_db': 80.0}"
+          ]
+        },
+        {
+          "scope": "preprocess",
+          "name": "normalize",
+          "support_level": "accelerated",
+          "accelerated_by": [
+            "CMSIS-DSP statistics and scale kernels"
+          ],
+          "fallback": null,
+          "unsupported_reason": null,
+          "notes": [
+            "params={'mode': 'per_sample_standardize'}"
+          ]
+        }
+      ],
+      "model_op_report": [
+        {
+          "scope": "model_op",
+          "name": "AVERAGE_POOL_2D",
+          "support_level": "supported",
+          "accelerated_by": [],
+          "fallback": "Use TFLM builtin float kernel.",
+          "unsupported_reason": null,
+          "notes": [
+            "count=1"
+          ]
+        },
+        {
+          "scope": "model_op",
+          "name": "CONV_2D",
+          "support_level": "supported",
+          "accelerated_by": [],
+          "fallback": "Use TFLM builtin float kernel.",
+          "unsupported_reason": null,
+          "notes": [
+            "count=3"
+          ]
+        },
+        {
+          "scope": "model_op",
+          "name": "DEQUANTIZE",
+          "support_level": "supported",
+          "accelerated_by": [],
+          "fallback": "Use TFLM builtin kernel to materialize float activations.",
+          "unsupported_reason": null,
+          "notes": [
+            "count=10"
+          ]
+        },
+        {
+          "scope": "model_op",
+          "name": "FULLY_CONNECTED",
+          "support_level": "supported",
+          "accelerated_by": [],
+          "fallback": "Use TFLM builtin float kernel.",
+          "unsupported_reason": null,
+          "notes": [
+            "count=2"
+          ]
+        },
+        {
+          "scope": "model_op",
+          "name": "MAX_POOL_2D",
+          "support_level": "supported",
+          "accelerated_by": [],
+          "fallback": "Use TFLM builtin float kernel.",
+          "unsupported_reason": null,
+          "notes": [
+            "count=3"
+          ]
+        },
+        {
+          "scope": "model_op",
+          "name": "STRIDED_SLICE",
+          "support_level": "supported",
+          "accelerated_by": [],
+          "fallback": "Use TFLM builtin kernel.",
+          "unsupported_reason": null,
+          "notes": [
+            "count=2"
+          ]
+        }
+      ]
+    },
+    {
+      "precision": "float32",
+      "export_ok": true,
+      "deployable": true,
+      "accelerated": "partial",
+      "summary": {
+        "precision": "float32",
+        "database_versions": {
+          "preprocess": {
+            "schema_version": "1.0",
+            "library_version": "manual-baseline"
+          },
+          "cmsis_nn": {
+            "schema_version": "1.0",
+            "library_version": "manual-baseline"
+          },
+          "tflm_builtin": {
+            "schema_version": "1.0",
+            "library_version": "manual-baseline"
+          }
+        },
+        "deployable": true,
+        "enabled_preprocess_steps": [
+          "bandpass",
+          "stft",
+          "mel",
+          "db_compression",
+          "normalize"
+        ],
+        "model_ops": [
+          {
+            "op_name": "AVERAGE_POOL_2D",
+            "count": 1
+          },
+          {
+            "op_name": "CONV_2D",
+            "count": 3
+          },
+          {
+            "op_name": "FULLY_CONNECTED",
+            "count": 2
+          },
+          {
+            "op_name": "MAX_POOL_2D",
+            "count": 3
+          },
+          {
+            "op_name": "STRIDED_SLICE",
+            "count": 2
+          }
+        ],
+        "accelerated_items": [
+          "preprocess:stft",
+          "preprocess:mel",
+          "preprocess:db_compression",
+          "preprocess:normalize"
+        ],
+        "not_fully_accelerated_items": [
+          "preprocess:bandpass",
+          "model_op:AVERAGE_POOL_2D",
+          "model_op:CONV_2D",
+          "model_op:FULLY_CONNECTED",
+          "model_op:MAX_POOL_2D",
+          "model_op:STRIDED_SLICE"
+        ],
+        "unsupported_items": [],
+        "accelerated_count": 4,
+        "not_fully_accelerated_count": 6,
+        "unsupported_count": 0,
+        "board_runtime_supported": true,
+        "board_runtime_unsupported_items": [],
+        "board_runtime_unsupported_reasons": {},
+        "board_runtime_warnings": [
+          "audio.bandpass is kept as metadata only in the current deployment flow; the generated runtime does not apply an extra time-domain bandpass stage.",
+          "Generated board runtime reconstructs the frontend in canonical NCHW order and then adapts it into the TFLite input layout."
+        ],
+        "board_runtime_expected": {
+          "sample_rate_hz": 16000,
+          "capture_window_ms": 1000,
+          "frame_length_ms": 25,
+          "frame_stride_ms": 10,
+          "fft_length": 1024,
+          "mel_bin_count": 48,
+          "feature_frame_count": 94,
+          "feature_element_count": 4512,
+          "mel_lower_edge_hz": 3000,
+          "mel_upper_edge_hz": 7900,
+          "top_db": 80.0
+        },
+        "board_runtime_supported_input_shapes": [
+          [
+            1,
+            1,
+            48,
+            94
+          ],
+          [
+            1,
+            48,
+            94,
+            1
+          ],
+          [
+            1,
+            1,
+            94,
+            48
+          ],
+          [
+            1,
+            94,
+            48,
+            1
+          ],
+          [
+            1,
+            48,
+            94
+          ],
+          [
+            1,
+            94,
+            48
+          ],
+          [
+            1,
+            1,
+            4512
+          ],
+          [
+            1,
+            4512,
+            1
+          ],
+          [
+            1,
+            4512
+          ]
+        ]
+      },
+      "preprocess_report": [
+        {
+          "scope": "preprocess",
+          "name": "bandpass",
+          "support_level": "fallback",
+          "accelerated_by": [],
+          "fallback": "Current deployment flow keeps bandpass as metadata only; no board-runtime bandpass stage is generated yet.",
+          "unsupported_reason": null,
+          "notes": [
+            "CMSIS-DSP biquad/FIR acceleration is feasible, but the lowering path is still TODO.",
+            "params={'low_hz': 3000, 'high_hz': 7900, 'order': 4}"
+          ]
+        },
+        {
+          "scope": "preprocess",
+          "name": "stft",
+          "support_level": "accelerated",
+          "accelerated_by": [
+            "CMSIS-DSP RFFT/vector kernels"
+          ],
+          "fallback": null,
+          "unsupported_reason": null,
+          "notes": [
+            "Generated board runner lowers windowing, RFFT, and power spectrum onto CMSIS-DSP helpers.",
+            "params={'n_fft': 1024, 'win_length': 400, 'hop_length': 160, 'center': False}"
+          ]
+        },
+        {
+          "scope": "preprocess",
+          "name": "mel",
+          "support_level": "accelerated",
+          "accelerated_by": [
+            "CMSIS-DSP dot-product kernels"
+          ],
+          "fallback": null,
+          "unsupported_reason": null,
+          "notes": [
+            "Generated board runner uses offline sparse mel coefficients plus CMSIS-DSP dot products.",
+            "params={'n_mels': 48, 'fmin': 3000, 'fmax': 7900, 'power': 2.0}"
+          ]
+        },
+        {
+          "scope": "preprocess",
+          "name": "db_compression",
+          "support_level": "accelerated",
+          "accelerated_by": [
+            "CMSIS-DSP vector log/scale kernels"
+          ],
+          "fallback": null,
+          "unsupported_reason": null,
+          "notes": [
+            "params={'top_db': 80.0}"
+          ]
+        },
+        {
+          "scope": "preprocess",
+          "name": "normalize",
+          "support_level": "accelerated",
+          "accelerated_by": [
+            "CMSIS-DSP statistics and scale kernels"
+          ],
+          "fallback": null,
+          "unsupported_reason": null,
+          "notes": [
+            "params={'mode': 'per_sample_standardize'}"
+          ]
+        }
+      ],
+      "model_op_report": [
+        {
+          "scope": "model_op",
+          "name": "AVERAGE_POOL_2D",
+          "support_level": "supported",
+          "accelerated_by": [],
+          "fallback": "Use TFLM builtin float kernel.",
+          "unsupported_reason": null,
+          "notes": [
+            "count=1"
+          ]
+        },
+        {
+          "scope": "model_op",
+          "name": "CONV_2D",
+          "support_level": "supported",
+          "accelerated_by": [],
+          "fallback": "Use TFLM builtin float kernel.",
+          "unsupported_reason": null,
+          "notes": [
+            "count=3"
+          ]
+        },
+        {
+          "scope": "model_op",
+          "name": "FULLY_CONNECTED",
+          "support_level": "supported",
+          "accelerated_by": [],
+          "fallback": "Use TFLM builtin float kernel.",
+          "unsupported_reason": null,
+          "notes": [
+            "count=2"
+          ]
+        },
+        {
+          "scope": "model_op",
+          "name": "MAX_POOL_2D",
+          "support_level": "supported",
+          "accelerated_by": [],
+          "fallback": "Use TFLM builtin float kernel.",
+          "unsupported_reason": null,
+          "notes": [
+            "count=3"
+          ]
+        },
+        {
+          "scope": "model_op",
+          "name": "STRIDED_SLICE",
+          "support_level": "supported",
+          "accelerated_by": [],
+          "fallback": "Use TFLM builtin kernel.",
+          "unsupported_reason": null,
+          "notes": [
+            "count=2"
+          ]
+        }
+      ]
+    }
+  ]
+}

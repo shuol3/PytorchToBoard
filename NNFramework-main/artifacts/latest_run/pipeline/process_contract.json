@@ -1,0 +1,158 @@
+{
+  "raw_input": {
+    "domain": "audio",
+    "sample_rate_hz": 16000,
+    "window_sec": 1.0,
+    "pad_short": true
+  },
+  "preprocess": [
+    {
+      "name": "bandpass",
+      "enabled": true,
+      "params": {
+        "low_hz": 3000,
+        "high_hz": 7900,
+        "order": 4
+      },
+      "source": "yaml",
+      "notes": []
+    },
+    {
+      "name": "stft",
+      "enabled": true,
+      "params": {
+        "n_fft": 1024,
+        "win_length": 400,
+        "hop_length": 160,
+        "center": false
+      },
+      "source": "yaml",
+      "notes": []
+    },
+    {
+      "name": "mel",
+      "enabled": true,
+      "params": {
+        "n_mels": 48,
+        "fmin": 3000,
+        "fmax": 7900,
+        "power": 2.0
+      },
+      "source": "yaml",
+      "notes": []
+    },
+    {
+      "name": "db_compression",
+      "enabled": true,
+      "params": {
+        "top_db": 80.0
+      },
+      "source": "yaml",
+      "notes": []
+    },
+    {
+      "name": "normalize",
+      "enabled": true,
+      "params": {
+        "mode": "per_sample_standardize"
+      },
+      "source": "yaml",
+      "notes": []
+    }
+  ],
+  "model_input": {
+    "shape_nchw": [
+      1,
+      1,
+      48,
+      94
+    ],
+    "dtype": "float32",
+    "semantic": "log_mel_feature",
+    "canonical_layout": "NCHW",
+    "canonical_shape_nchw": [
+      1,
+      1,
+      48,
+      94
+    ],
+    "feature_shape_hw": [
+      48,
+      94
+    ],
+    "feature_channels": 1,
+    "feature_element_count": 4512,
+    "runtime_supported_layouts": [
+      "NCHW",
+      "NHWC",
+      "MATRIX",
+      "FLAT"
+    ],
+    "runtime_supported_input_shapes": [
+      [
+        1,
+        1,
+        48,
+        94
+      ],
+      [
+        1,
+        48,
+        94,
+        1
+      ],
+      [
+        1,
+        1,
+        94,
+        48
+      ],
+      [
+        1,
+        94,
+        48,
+        1
+      ],
+      [
+        1,
+        48,
+        94
+      ],
+      [
+        1,
+        94,
+        48
+      ],
+      [
+        1,
+        1,
+        4512
+      ],
+      [
+        1,
+        4512,
+        1
+      ],
+      [
+        1,
+        4512
+      ]
+    ]
+  },
+  "model_output": {
+    "type": "classification",
+    "class_count": 3,
+    "load_mode": "model_state_dict"
+  },
+  "labels": [
+    "eat",
+    "drink",
+    "other"
+  ],
+  "postprocess": [],
+  "assumptions": [
+    "Recovered frontend tensors use canonical single-channel NCHW layout before any runtime-specific layout adaptation.",
+    "audio.bandpass is kept as metadata only in the current deployment flow; the generated runtime does not apply an extra time-domain bandpass stage.",
+    "Generated board runtime reconstructs the frontend in canonical NCHW order and then adapts it into the TFLite input layout."
+  ]
+}

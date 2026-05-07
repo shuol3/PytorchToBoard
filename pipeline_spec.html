@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<!-- 整个文件：当前项目静态规格页，描述固定输入、部署流水线、板端契约与常用命令。 -->
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PytorchToBoard 当前项目规格页</title>
+  <style>
+    :root {
+      --bg: #f3eee5;
+      --paper: rgba(255, 251, 245, 0.92);
+      --paper-strong: rgba(255, 248, 239, 0.98);
+      --ink: #22201b;
+      --muted: #635c52;
+      --line: rgba(94, 77, 54, 0.18);
+      --accent: #ad5d2f;
+      --accent-2: #2c6a63;
+      --accent-3: #7d8f3c;
+      --code-bg: #1e1f23;
+      --code-ink: #f8e9d3;
+      --shadow: 0 22px 50px rgba(83, 62, 38, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(173, 93, 47, 0.16), transparent 24rem),
+        radial-gradient(circle at top right, rgba(44, 106, 99, 0.16), transparent 26rem),
+        linear-gradient(180deg, #f6f1e8 0%, #efe6da 100%);
+      font: 16px/1.75 "Noto Sans SC", "Microsoft YaHei", "PingFang SC", sans-serif;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 20rem minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      align-self: start;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 2rem 1.2rem 2.4rem;
+      border-right: 1px solid var(--line);
+      background: rgba(251, 245, 236, 0.82);
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      margin-bottom: 1.5rem;
+      padding: 1rem 1rem 1.1rem;
+      border: 1px solid var(--line);
+      border-radius: 1.2rem;
+      background: linear-gradient(145deg, rgba(255, 252, 247, 0.92), rgba(245, 233, 217, 0.86));
+      box-shadow: 0 14px 30px rgba(107, 79, 48, 0.08);
+    }
+
+    .brand small {
+      display: block;
+      margin-bottom: 0.35rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand strong {
+      display: block;
+      font: 700 1.25rem/1.2 "Bahnschrift", "DIN Alternate", "Noto Sans SC", sans-serif;
+    }
+
+    .toc {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .toc li + li {
+      margin-top: 0.35rem;
+    }
+
+    .toc a {
+      display: block;
+      padding: 0.58rem 0.75rem;
+      border-radius: 0.8rem;
+      color: var(--ink);
+      text-decoration: none;
+      transition: transform 0.16s ease, background-color 0.16s ease, color 0.16s ease;
+    }
+
+    .toc a:hover {
+      color: var(--accent);
+      background: rgba(173, 93, 47, 0.08);
+      transform: translateX(0.15rem);
+    }
+
+    .content {
+      padding: 2.4rem clamp(1.1rem, 2.4vw, 2.4rem) 3.5rem;
+    }
+
+    .hero,
+    section {
+      width: min(74rem, 100%);
+      margin: 0 auto 1.4rem;
+      padding: 1.8rem;
+      border: 1px solid var(--line);
+      border-radius: 1.5rem;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      animation: rise 0.45s ease both;
+    }
+
+    .hero {
+      background:
+        linear-gradient(140deg, rgba(255, 253, 249, 0.96), rgba(251, 242, 229, 0.93)),
+        linear-gradient(140deg, rgba(173, 93, 47, 0.08), rgba(44, 106, 99, 0.08));
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(0.8rem);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-top: 0;
+      line-height: 1.2;
+      font-family: "Bahnschrift", "DIN Alternate", "Noto Sans SC", sans-serif;
+    }
+
+    h1 {
+      margin-bottom: 0.8rem;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: 0.01em;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      font-size: 1.6rem;
+      color: var(--accent);
+    }
+
+    h3 {
+      margin-bottom: 0.75rem;
+      font-size: 1.08rem;
+      color: var(--accent-2);
+    }
+
+    p,
+    li {
+      color: var(--ink);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .badge-row,
+    .grid,
+    .mini-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .badge-row {
+      grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+      margin-top: 1.1rem;
+    }
+
+    .grid {
+      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    }
+
+    .mini-grid {
+      grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    }
+
+    .card,
+    .pill,
+    .callout {
+      border: 1px solid var(--line);
+      border-radius: 1.1rem;
+      background: var(--paper-strong);
+    }
+
+    .card {
+      padding: 1rem 1rem 1.05rem;
+    }
+
+    .card strong,
+    .pill strong {
+      display: block;
+      margin-bottom: 0.35rem;
+      color: var(--accent);
+    }
+
+    .pill {
+      padding: 0.95rem 1rem;
+    }
+
+    .callout {
+      margin-top: 1rem;
+      padding: 1rem 1.1rem;
+      border-left: 0.35rem solid var(--accent-2);
+      background: linear-gradient(135deg, rgba(44, 106, 99, 0.08), rgba(255, 248, 240, 0.92));
+    }
+
+    .path,
+    code {
+      font-family: "Cascadia Code", Consolas, "Courier New", monospace;
+    }
+
+    code {
+      padding: 0.12rem 0.34rem;
+      border-radius: 0.35rem;
+      background: rgba(44, 34, 24, 0.07);
+    }
+
+    .path {
+      color: var(--accent);
+      word-break: break-all;
+    }
+
+    pre {
+      margin: 1rem 0 0;
+      padding: 1rem 1.1rem;
+      overflow-x: auto;
+      border-radius: 1rem;
+      background: var(--code-bg);
+      color: var(--code-ink);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    pre code {
+      padding: 0;
+      background: transparent;
+      color: inherit;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 1rem;
+      background: rgba(255, 252, 247, 0.96);
+      border: 1px solid var(--line);
+    }
+
+    th,
+    td {
+      padding: 0.8rem 0.9rem;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    th {
+      background: rgba(173, 93, 47, 0.08);
+      color: var(--accent);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    ul,
+    ol {
+      padding-left: 1.25rem;
+    }
+
+    @media (max-width: 1080px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .content {
+        padding-top: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <!-- 左侧导航：便于在单页规格中快速跳转。 -->
+    <aside class="sidebar">
+      <div class="brand">
+        <small>Specification</small>
+        <strong>PytorchToBoard</strong>
+        <span class="muted">当前项目部署规格页</span>
+      </div>
+      <ul class="toc">
+        <li><a href="#overview">1. 项目总览</a></li>
+        <li><a href="#structure">2. 当前结构</a></li>
+        <li><a href="#inputs">3. 固定输入</a></li>
+        <li><a href="#entrypoint">4. 主入口流程</a></li>
+        <li><a href="#pipeline">5. Pipeline 阶段</a></li>
+        <li><a href="#calibration">6. 校准与验证</a></li>
+        <li><a href="#runtime">7. 板端运行时契约</a></li>
+        <li><a href="#artifacts">8. 输出产物</a></li>
+        <li><a href="#commands">9. 常用命令</a></li>
+        <li><a href="#environment">10. 环境假设</a></li>
+      </ul>
+    </aside>
+
+    <main class="content">
+      <!-- 总览区：说明项目定位与当前工作区。 -->
+      <section id="overview" class="hero">
+        <h1>PytorchToBoard 当前项目规格页</h1>
+        <p class="muted">
+          本页只描述当前仓库里真实存在且仍在使用的部署链路。主路径是
+          <code>NNFramework-main\run_model_to_board.py</code> 驱动的零参数部署流程，
+          它会恢复固定输入目录中的 PyTorch 音频分类模型，导出多精度 TFLite 候选，
+          完成能力分析与验证，然后生成 nRF5340 固件需要的板端推理代码。
+        </p>
+        <div class="badge-row">
+          <div class="pill">
+            <strong>目标板</strong>
+            <span>nRF5340</span>
+          </div>
+          <div class="pill">
+            <strong>主入口</strong>
+            <span><code>NNFramework-main\run_model_to_board.py</code></span>
+          </div>
+          <div class="pill">
+            <strong>主运行时</strong>
+            <span>TFLM + CMSIS-NN + CMSIS-DSP</span>
+          </div>
+          <div class="pill">
+            <strong>工作区</strong>
+            <span class="path">D:\NRF5340\PytorchToBoard</span>
+          </div>
+        </div>
+        <div class="callout">
+          当前仓库的核心用途是“模型部署到板端”和“nRF5340 固件集成验证”。
+        </div>
+      </section>
+
+      <!-- 结构区：说明当前两个主要目录各自承担什么职责。 -->
+      <section id="structure">
+        <h2>2. 当前结构</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>NNFramework-main</h3>
+            <p>当前主部署流水线，负责输入检查、模型恢复、TFLite 导出、候选分析、验证与板端文件生成。</p>
+            <p class="muted">真实主流程从这里启动。</p>
+          </article>
+          <article class="card">
+            <h3>pencilv_stage_tflite_end2end</h3>
+            <p>nRF5340 Zephyr 固件工程，负责音频采集、调用生成的推理运行时代码并输出分类结果。</p>
+            <p class="muted">真正参与编译和烧录的是这个固件工程。</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- 输入区：说明 run_model_to_board.py 真实读取的目录和文件。 -->
+      <section id="inputs">
+        <h2>3. 固定输入</h2>
+        <p>当前主流程固定从 <code>NNFramework-main\in\</code> 读取输入，不再要求用户通过命令行逐项传参。</p>
+        <table>
+          <thead>
+            <tr>
+              <th>路径</th>
+              <th>作用</th>
+              <th>说明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>model.py</code></td>
+              <td>PyTorch 模型定义</td>
+              <td>恢复阶段会按该文件中的结构重建模型。</td>
+            </tr>
+            <tr>
+              <td><code>train_1s.yaml</code></td>
+              <td>音频、特征、标签与数据路径配置</td>
+              <td>当前真实使用的配置文件名是 <code>train_1s.yaml</code>，不是旧文档中的 <code>config.yaml</code>。</td>
+            </tr>
+            <tr>
+              <td>唯一一个 <code>.pt</code> 文件</td>
+              <td>checkpoint 或 TorchScript</td>
+              <td>优先接受 <code>best_model.pt</code> 或 <code>model.pt</code>；如果存在多个 <code>.pt</code> 文件会直接报错。</td>
+            </tr>
+            <tr>
+              <td><code>data/</code></td>
+              <td>真实音频数据目录</td>
+              <td>用于训练配置重放、代表性校准样本生成和真实任务验证。</td>
+            </tr>
+            <tr>
+              <td><code>calibration_data/</code></td>
+              <td>辅助校准数据目录</td>
+              <td>作为输入布局的一部分保留在固定目录中。</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 主入口区：解释 run_model_to_board.py 的零参数执行链路。 -->
+      <section id="entrypoint">
+        <h2>4. 主入口流程</h2>
+        <pre><code>NNFramework-main\in\
+  -> run_model_to_board.py
+  -> 校验固定输入目录
+  -> 重建 artifacts\latest_run\
+  -> 写出 resolved_config.yaml
+  -> python -m pipeline.cli run
+  -> 选择最终 TFLite 候选
+  -> pipeline\board\tflite2cppfile.py
+  -> pencilv_stage_tflite_end2end\src\generated\
+  -> 用户自行执行 west build / west flash</code></pre>
+        <div class="mini-grid">
+          <div class="card">
+            <h3>输入校验</h3>
+            <p>主入口会检查 <code>model.py</code>、<code>train_1s.yaml</code>、唯一 <code>.pt</code> 文件和 <code>data/</code> 是否齐全。</p>
+          </div>
+          <div class="card">
+            <h3>运行产物</h3>
+            <p>所有本次部署的中间结果和日志会集中写入 <code>NNFramework-main\artifacts\latest_run\</code>。</p>
+          </div>
+          <div class="card">
+            <h3>板端输出</h3>
+            <p>最终生成的 C/C++ 文件会写入 <code>pencilv_stage_tflite_end2end\src\generated\</code>，再由固件工程编译。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pipeline 区：对应 pipeline.cli 和 orchestrator 的真实阶段。 -->
+      <section id="pipeline">
+        <h2>5. Pipeline 阶段</h2>
+        <p>当前命令行入口 <code>python -m pipeline.cli</code> 暴露三个子命令：<code>identify</code>、<code>recover</code> 和 <code>run</code>。其中 <code>run</code> 是完整主流程。</p>
+        <table>
+          <thead>
+            <tr>
+              <th>阶段</th>
+              <th>职责</th>
+              <th>当前说明</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>identify</code></td>
+              <td>识别 checkpoint 类型和模型身份</td>
+              <td>生成输入清单与检查点静态识别结果。</td>
+            </tr>
+            <tr>
+              <td><code>restore</code></td>
+              <td>恢复 PyTorch 模型</td>
+              <td>把固定输入目录中的模型定义与权重恢复成可执行参考模型。</td>
+            </tr>
+            <tr>
+              <td><code>recovery</code></td>
+              <td>重建 process contract</td>
+              <td>恢复输入域、前处理步骤、模型输入输出语义与板端需要的约束元数据。</td>
+            </tr>
+            <tr>
+              <td><code>export</code></td>
+              <td>导出多精度 TFLite 候选</td>
+              <td>同时尝试 <code>int8</code>、<code>float16</code>、<code>float32</code> 三组候选。</td>
+            </tr>
+            <tr>
+              <td><code>analyze</code></td>
+              <td>分析可部署性和加速覆盖</td>
+              <td>检查 preprocess 步骤、算子支持情况以及当前板端运行时契约是否匹配。</td>
+            </tr>
+            <tr>
+              <td><code>validate</code></td>
+              <td>验证候选可用性</td>
+              <td>当前由 <code>synthetic smoke</code> 和 <code>real-feature task validation</code> 两层组成。</td>
+            </tr>
+            <tr>
+              <td><code>select</code></td>
+              <td>选择最终候选</td>
+              <td>选择顺序固定为 <code>int8 &gt; float16 &gt; float32</code>，必须同时满足导出成功、可部署、验证通过。</td>
+            </tr>
+            <tr>
+              <td><code>package</code></td>
+              <td>写出清单、报告与板端配置</td>
+              <td>统一生成 manifest、候选比较、验证报告与板端打包所需元数据。</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="callout">
+          选中的候选最终会折叠为三种部署状态之一：<code>success</code>、<code>partial_success</code> 或 <code>failed</code>。
+          如果发生伪校准回退、只有 synthetic smoke、并非完全加速或板端契约存在残余风险，结果会被标记为 <code>partial_success</code>。
+        </div>
+      </section>
+
+      <!-- 校准与验证区：对应 representative_calibration.py 与 validate_candidates.py 的真实逻辑。 -->
+      <section id="calibration">
+        <h2>6. 校准与验证</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>代表性校准优先</h3>
+            <p>
+              当前 <code>int8</code> 导出优先尝试基于真实音频窗口和 log-mel 特征重建代表性校准样本，
+              样本来自 <code>train_1s.yaml</code> 指向的数据目录，并按类别做平衡抽样。
+            </p>
+          </article>
+          <article class="card">
+            <h3>允许伪校准回退</h3>
+            <p>
+              如果代表性校准样本无法构造，流程仍可能回退到 pseudo calibration。
+              这种情况下候选可以继续被选择，但部署状态会附带临时性风险告警。
+            </p>
+          </article>
+          <article class="card">
+            <h3>验证分两层</h3>
+            <p>
+              每个候选都会先做 <code>zeros</code>、<code>normal_seed_7</code>、
+              <code>uniform_seed_17</code> 三组 synthetic smoke；若真实数据可用，
+              还会做基于真实特征的任务指标验证。
+            </p>
+          </article>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>验证层</th>
+              <th>用途</th>
+              <th>当前行为</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>synthetic smoke</code></td>
+              <td>确认候选能稳定跑通</td>
+              <td>始终执行，用于检查量化输入准备、推理执行和输出有限性。</td>
+            </tr>
+            <tr>
+              <td><code>real-feature task validation</code></td>
+              <td>确认真实任务指标可接受</td>
+              <td>优先选择 <code>test -&gt; val -&gt; train</code> 数据切分，比较准确率、宏平均 F1 和参考模型 top1 一致率。</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 板端契约区：描述当前生成 runner 对 process contract 的真实要求。 -->
+      <section id="runtime">
+        <h2>7. 板端运行时契约</h2>
+        <p>当前板端生成器会用 <code>process_contract.json</code> 约束生成 runner 的配置，避免恢复结果、TFLite 模型与固件侧参数静默漂移。</p>
+        <div class="mini-grid">
+          <div class="card">
+            <h3>输入域</h3>
+            <p>只支持从原始音频 PCM 开始的音频域流程，不打包非音频输入域。</p>
+          </div>
+          <div class="card">
+            <h3>支持的前处理</h3>
+            <p>当前生成 runner 显式覆盖 <code>stft</code>、<code>mel</code>、<code>db_compression</code> 和 <code>normalize</code>。</p>
+          </div>
+          <div class="card">
+            <h3>bandpass 现状</h3>
+            <p><code>bandpass</code> 目前只保留为元数据，不会在当前板端运行时里额外执行时域带通滤波。</p>
+          </div>
+          <div class="card">
+            <h3>normalize 限制</h3>
+            <p>只接受 <code>per_sample_standardize</code> 或 <code>disabled</code> 两种模式。</p>
+          </div>
+        </div>
+        <div class="callout">
+          当前生成 runner 要求 <code>stft.center = false</code>，并且会先按 canonical
+          <code>NCHW</code> 重建前端特征，再适配到模型实际输入布局。
+          支持的布局标签包括 <code>NCHW</code>、<code>NHWC</code>、<code>MATRIX</code> 和 <code>FLAT</code>。
+        </div>
+        <pre><code>当前可接受的特征形状语义示例
+[1, 1, mel_bins, frame_count]
+[1, mel_bins, frame_count, 1]
+[1, mel_bins, frame_count]
+[1, mel_bins * frame_count]</code></pre>
+      </section>
+
+      <!-- 产物区：列出当前主流程真正会写出的文件。 -->
+      <section id="artifacts">
+        <h2>8. 输出产物</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>路径</th>
+              <th>内容</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>NNFramework-main\artifacts\latest_run\resolved_config.yaml</code></td>
+              <td>主入口根据固定输入目录重写后的本次部署配置。</td>
+            </tr>
+            <tr>
+              <td><code>NNFramework-main\artifacts\latest_run\pipeline\manifest.json</code></td>
+              <td>完整 pipeline 运行结果与最终部署状态汇总。</td>
+            </tr>
+            <tr>
+              <td><code>NNFramework-main\artifacts\latest_run\pipeline\candidate_comparison.json</code></td>
+              <td>多精度候选比较和最终选择结果。</td>
+            </tr>
+            <tr>
+              <td><code>NNFramework-main\artifacts\latest_run\pipeline\validation_report.json</code></td>
+              <td>synthetic smoke 与真实任务验证报告。</td>
+            </tr>
+            <tr>
+              <td><code>NNFramework-main\artifacts\latest_run\pipeline\process_contract.json</code></td>
+              <td>恢复出的输入到输出处理契约。</td>
+            </tr>
+            <tr>
+              <td><code>NNFramework-main\artifacts\latest_run\pipeline\acceleration_report.json</code></td>
+              <td>各候选的加速覆盖与板端适配分析。</td>
+            </tr>
+            <tr>
+              <td><code>NNFramework-main\artifacts\latest_run\pipeline\unsupported_report.json</code></td>
+              <td>不支持项及其原因说明。</td>
+            </tr>
+            <tr>
+              <td><code>NNFramework-main\artifacts\latest_run\pipeline_run.log</code></td>
+              <td>主 pipeline 子进程标准输出和标准错误日志。</td>
+            </tr>
+            <tr>
+              <td><code>NNFramework-main\artifacts\latest_run\board_export.log</code></td>
+              <td>板端代码生成子进程日志。</td>
+            </tr>
+            <tr>
+              <td><code>pencilv_stage_tflite_end2end\src\generated\audio_event_model_*.h/.cpp</code></td>
+              <td>固件工程直接编译使用的生成代码，包括模型数据、配置和 runner。</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 命令区：保留当前实际可执行的命令，不包含已经过时的旧入口。 -->
+      <section id="commands">
+        <h2>9. 常用命令</h2>
+        <h3>执行模型到板端代码的主流程</h3>
+        <pre><code>python .\NNFramework-main\run_model_to_board.py</code></pre>
+
+        <h3>重建校准数据</h3>
+        <pre><code>python .\NNFramework-main\in\prepare_calibration_data.py</code></pre>
+
+        <h3>直接调用底层 pipeline</h3>
+        <pre><code>python -m pipeline.cli run ^
+  --model-py D:\path\to\model.py ^
+  --checkpoint D:\path\to\model.pt ^
+  --config D:\path\to\train_1s.yaml ^
+  --output-dir D:\path\to\out</code></pre>
+
+        <h3>编译 nRF5340 固件</h3>
+        <pre><code>cd .\pencilv_stage_tflite_end2end
+west build -p always -b pencilv/nrf5340/cpuapp -s . -o=-j1 -- -DBOARD_ROOT=.</code></pre>
+
+        <h3>烧录固件</h3>
+        <pre><code>west flash</code></pre>
+      </section>
+
+      <!-- 环境区：总结当前代码假定的 PC 端依赖与边界。 -->
+      <section id="environment">
+        <h2>10. 环境假设</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Python 侧</h3>
+            <p>当前流程默认依赖 <code>torch</code>、<code>tensorflow</code>、<code>onnx2tf</code>、<code>numpy</code> 和 <code>PyYAML</code>。</p>
+          </article>
+          <article class="card">
+            <h3>固件侧</h3>
+            <p>当前固件工程基于 Zephyr / west 构建，板端运行时使用 TFLM，并结合 CMSIS-NN 与 CMSIS-DSP。</p>
+          </article>
+          <article class="card">
+            <h3>当前边界</h3>
+            <p>本页不再引用已经不在当前主路径中的旧训练脚本入口、旧测试套件目录或已经删除的补充 Markdown 说明。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
